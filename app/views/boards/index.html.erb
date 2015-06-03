@@ -1,1 +1,12 @@
 <h1>This file ONLY shows private boards</h1>
+
+<% if @boards.empty? %>
+	<strong>You have no boards yet!</strong>
+<% else %>
+	<strong>Here are your boards:</strong>
+		<% @boards.each do |board| %>
+			<p>Name: <%= board.name %></p>
+			<p>Description: <%= board.description %></p>
+			<p><%= link_to 'Show above board', board_path(board) %></p>
+		<% end %>
+<% end %>

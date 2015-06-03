@@ -7,7 +7,12 @@
 		<% @pins.each do |pin| %>
 			<p>Name: <%= pin.title %></p>
 			<p>Caption: <%= pin.caption %></p>
+			<%= link_to 'Photo', pin.url %><br>
 		<% end %>
 <% end %>
 
+
+
 <%= link_to 'Add a new pin', new_pin_path %>
+<%= link_to 'Create a board', new_board_path %>
+<%= link_to 'My pins', pins_path %>

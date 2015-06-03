@@ -1,21 +1,22 @@
 <h1>Add a new pin:</h1>
 
-<%= simple_form_for @pin, :url => pins_path, :html => { :multipart => true } do |form| %>
+<%= simple_form_for @pin do |form| %>
 
 	<p>
-		<%= form.input :title, label: "Enter a title here:" %>
+		<%= form.input :title, label: "Enter the title here:" %>
 	</p>
 
 	<p>
-		<%= form.input :caption, label: "Enter a caption here:" %>
+		<%= form.input :caption, label: "Enter the caption here:" %>
 	</p>
 
 	<p>
-		<%= form.input :image, as: :file, label: "Attach a photo:" %>
+		<%= form.input :url, label: "Attach a url:" %>
 	</p>
+
 
 	<p>
 		<%= form.button :submit %>
 	</p>
- 
+
 <% end %>

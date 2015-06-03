@@ -5,7 +5,7 @@ class BoardsController < ApplicationController
 
 	def create
 		@board = Board.create(board_params)
-		@board.user_id = current_user.user_id
+		@board.user_id = current_user.id
 
 		if @board.save
 			redirect_to @board
@@ -15,11 +15,26 @@ class BoardsController < ApplicationController
 	end
 
 	def index
-		@board = current_user.boards 
+		@boards = current_user.boards 
 	end
 
 	def show
 		@board = Board.find(params[:id])
+		
+	end
+
+	def edit
+		@board = Board.find(params[:id])
+	end
+
+	def update
+		@board = Board.find(params[:id])
+
+		if @board.save
+			redirect_to @board
+		else
+			render :edit
+		end
 	end
 
 private

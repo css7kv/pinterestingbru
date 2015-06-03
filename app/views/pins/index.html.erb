@@ -9,7 +9,10 @@
 		<% @pins.each do |pin| %>
 			<p>Name: <%= pin.title %></p>
 			<p>Caption: <%= pin.caption %></p>
-			<p><%= image_tag pin.image.url(:thumb) %></p>
+			<p><%= link_to 'Photo', pin.url %></p>
+			<p><%= link_to 'Show above pin', pin_path(pin) %></p>
 		<% end %>
 <% end %>
+
+<%= link_to 'Home', root_path %>
 
