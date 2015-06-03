@@ -1,0 +1,13 @@
+<h1>These are all boards and pins that users have posted</h1>
+
+<% if @pins.empty? %>
+	<strong>You have no pins yet!</strong>
+<% else %>
+	<strong>Here are your pins:</strong>
+		<% @pins.each do |pin| %>
+			<p>Name: <%= pin.title %></p>
+			<p>Caption: <%= pin.caption %></p>
+		<% end %>
+<% end %>
+
+<%= link_to 'Add a new pin', new_pin_path %>

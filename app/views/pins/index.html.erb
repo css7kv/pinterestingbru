@@ -1,0 +1,15 @@
+<h1>This page is ONLY for private pins</h1>
+
+<%= link_to 'Add a new pin', new_pin_path %><br>
+
+<% if @pins.empty? %>
+	<strong>You have no pins yet!</strong>
+<% else %>
+	<strong>Here are your pins:</strong>
+		<% @pins.each do |pin| %>
+			<p>Name: <%= pin.title %></p>
+			<p>Caption: <%= pin.caption %></p>
+			<p><%= image_tag pin.image.url(:thumb) %></p>
+		<% end %>
+<% end %>
+
