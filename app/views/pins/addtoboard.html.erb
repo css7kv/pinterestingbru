@@ -1,0 +1,13 @@
+<h1>Which board would you like to add your pin to?</h1><br>
+
+<% if @boards.empty? %>
+	<strong>Whoops!You have no boards yet!</strong>
+<% else %>
+	<strong>Here are your existing boards:</strong>
+		<% @boards.each do |board| %>
+			<p><%= link_to board.name, pin_add2_path(@pin, board), method: :put %></p>
+		<% end %>
+<% end %>
+
+<%= link_to 'Home', root_path %>
+

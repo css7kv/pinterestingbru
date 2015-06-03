@@ -3,7 +3,15 @@
 
 <p>List of pins:</p>
 
+<% @board.pins.each do |pin| %> 
+	<%= pin.title %>
+	<%= pin.caption %>
+<% end %>
+
+
 
 <%= link_to 'Edit', edit_board_path(@board) %>
 
 <%= link_to 'Back to Your Boards', boards_path %>
+
+<%= link_to 'Home', root_path %>

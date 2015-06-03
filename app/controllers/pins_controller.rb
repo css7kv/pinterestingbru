@@ -26,6 +26,21 @@ class PinsController < ApplicationController
 		@pin = Pin.find(params[:id])
 	end
 
+	def addtoboard
+		@pin = Pin.find(params[:id])
+		@boards = current_user.boards
+	end
+
+	def add2
+		@pin = Pin.find(params[:pin_id])
+		@board = Board.find(params[:id])
+		@board.pins << @pin
+		@board.save
+
+		redirect_to @board
+	end
+
+
 	def update
 		@pin = Pin.find(params[:id])
 
