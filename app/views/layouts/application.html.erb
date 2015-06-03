@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Pinterestingbru</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -15,15 +16,41 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
-<p class="navbar-text pull-right">
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-<% end %>
+<div class="navbar-wrapper">
+  <div class="container">
+    <div class="navbar navbar-inverse navbar-static-top">
+      
+        <div class="navbar-header">
+	    <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </a>
+        <a class="navbar-brand" href="localhost:3000/welcome/index">PinterestingBru</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="localhost:3000/welcome/index">Home</a></li>
+            <li><a href="/pins" target="ext">My Pins</a></li>
+            <li><a href="boards_path">My Boards</a></li>
+           
+          </ul>
+        </div>
+        <p class="navbar-text pull-right">
+			<% if user_signed_in? %>
+			  Logged in as <strong><%= current_user.email %></strong>.
+			  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+			  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+			<% else %>
+			  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+			  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+			<% end %>
+
+    </div>
+  </div><!-- /container -->
+</div><!-- /navbar wrapper -->
+
+
 
 <%= yield %>
 

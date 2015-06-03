@@ -1,18 +1,20 @@
-<h1>These are all boards and pins that users have posted</h1>
+<h1>Welcome!</h1>
+<h2>Check out your news feed below:</h2>
 
 <% if @pins.empty? %>
-	<strong>You have no pins yet!</strong>
+	<strong>Sorry: no pins have been posted yet!</strong><br>
 <% else %>
-	<strong>Here are your pins:</strong>
 		<% @pins.each do |pin| %>
-			<p>Name: <%= pin.title %></p>
-			<p>Caption: <%= pin.caption %></p>
-			<%= link_to 'Photo', pin.url %><br>
+			<strong><%= link_to pin.title, pin_path(pin) %></strong>
+			<p><%= pin.caption %></p>
+			<img src = "<%= pin.url %>" style="width:500px;height:500px;"><br>
 		<% end %>
 <% end %>
 
 
 
-<%= link_to 'Add a new pin', new_pin_path %>
-<%= link_to 'Create a board', new_board_path %>
-<%= link_to 'My pins', pins_path %>
+<%= link_to 'Add a new pin', new_pin_path %><br>
+<%= link_to 'Create a board', new_board_path %><br>
+<%= link_to 'My Pins', pins_path %><br>
+<%= link_to 'My Boards', boards_path %>
+

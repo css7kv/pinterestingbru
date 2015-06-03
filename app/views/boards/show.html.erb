@@ -1,17 +1,19 @@
-<%= @board.name %><br>
-<%= @board.description %><br>
+<h1><%= @board.name %><h1>
+<h2><%= @board.description %></h2><br>
 
-<p>List of pins:</p>
+
 
 <% @board.pins.each do |pin| %> 
-	<%= pin.title %>
-	<%= pin.caption %>
+	<strong><%= pin.title %></strong><br>
+	<p><%= pin.caption %><p>
+	<img src = "<%= pin.url %>" style="width:500px;height:500px;"><br>
 <% end %>
 
 
 
-<%= link_to 'Edit', edit_board_path(@board) %>
-
-<%= link_to 'Back to Your Boards', boards_path %>
+<%= link_to 'Add a new pin', new_pin_path %><br>
+<%= link_to 'Create a board', new_board_path %><br>
+<%= link_to 'My Pins', pins_path %><br>
+<%= link_to 'My Boards', boards_path %><br>
 
 <%= link_to 'Home', root_path %>

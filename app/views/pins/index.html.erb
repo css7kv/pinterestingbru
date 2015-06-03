@@ -1,18 +1,20 @@
-<h1>This page is ONLY for private pins</h1>
-
-<%= link_to 'Add a new pin', new_pin_path %><br>
+<h1>My Pins</h1>
 
 <% if @pins.empty? %>
-	<strong>You have no pins yet!</strong>
+	<strong>You have no pins yet!</strong><br>
 <% else %>
-	<strong>Here are your pins:</strong>
+
 		<% @pins.each do |pin| %>
-			<p>Name: <%= pin.title %></p>
-			<p>Caption: <%= pin.caption %></p>
-			<p><%= link_to 'Photo', pin.url %></p>
-			<p><%= link_to 'Show above pin', pin_path(pin) %></p>
+			<strong><%= link_to pin.title, pin_path(pin) %></strong><br>
+			<p><%= pin.caption %></p><br>
+			<img src = "<%= pin.url %>" style="width:500px;height:500px;"><br><br><br>
 		<% end %>
 <% end %>
+
+<%= link_to 'Add a new pin', new_pin_path %><br>
+<%= link_to 'Create a board', new_board_path %><br>
+
+<%= link_to 'My Boards', boards_path %><br>
 
 <%= link_to 'Home', root_path %>
 

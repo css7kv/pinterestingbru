@@ -1,14 +1,18 @@
-<h1>This file ONLY shows private boards</h1>
+<h1>My Boards</h1>
 
 <% if @boards.empty? %>
-	<strong>You have no boards yet!</strong>
+	<strong>You have no boards yet!</strong><br>
 <% else %>
-	<strong>Here are your boards:</strong>
 		<% @boards.each do |board| %>
-			<p>Name: <%= board.name %></p>
-			<p>Description: <%= board.description %></p>
-			<p><%= link_to 'Show above board', board_path(board) %></p>
+			<strong><%= link_to board.name, board_path(board) %></strong>
+			<p><%= board.description %></p><br><br>
+			
 		<% end %>
 <% end %>
+
+<%= link_to 'Add a new pin', new_pin_path %><br>
+<%= link_to 'Create a board', new_board_path %><br>
+<%= link_to 'My Pins', pins_path %><br>
+<%= link_to 'My Boards', boards_path %><br>
 
 <%= link_to 'Home', root_path %>
