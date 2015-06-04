@@ -2,18 +2,17 @@
 
 <strong><%= @pin.title %></strong><br>
 <p><%= @pin.caption %></p><br>
+<p>Likes: <%= @pin.like %></p>
 <img src = "<%= @pin.url %>" style="width:500px;height:500px;"><br><br>
-
-
-<%= link_to 'Add to Board', addtoboard_pin_path(@pin) %><br>
-<%= link_to 'Edit', edit_pin_path(@pin) %><br>
+<p><%= button_to 'Like', like_pin_path(@pin), method: :post %></p>
 
 
 
+<%= button_to "Delete Pin", @pin, :method => :delete, data: {confirm: "Are you sure bru?"} %><br>
+<%= button_to 'Add to Board', addtoboard_pin_path(@pin) %><br>
+<%= button_to 'Edit', edit_pin_path(@pin) %><br>
 
 
-<%= link_to 'Add a new pin', new_pin_path %><br>
-<%= link_to 'Create a board', new_board_path %><br>
-<%= link_to 'My Pins', pins_path %><br>
-<%= link_to 'My Boards', boards_path %><br>
-<%= link_to 'Home', root_path %><br><br>
+
+
+

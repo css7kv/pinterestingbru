@@ -51,6 +51,19 @@ class PinsController < ApplicationController
 		end
 	end
 
+	def destroy
+    	@pin = Pin.find(params[:id])
+    	@pin.destroy
+ 
+    	redirect_to pins_path
+   	end
+
+   	def like
+   		@pin = Pin.find(params[:id])
+  		@pin.increment!(:like, by = 1)
+  		redirect_to(pins_path)
+  	end
+
 private
 
 	def pin_params

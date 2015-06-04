@@ -6,15 +6,10 @@
 
 		<% @pins.each do |pin| %>
 			<strong><%= link_to pin.title, pin_path(pin) %></strong><br>
-			<p><%= pin.caption %></p><br>
+			<p><%= pin.caption %></p>
+			<p>Likes: <%= pin.like %></p>
 			<img src = "<%= pin.url %>" style="width:500px;height:500px;"><br><br><br>
 		<% end %>
 <% end %>
 
-<%= link_to 'Add a new pin', new_pin_path %><br>
-<%= link_to 'Create a board', new_board_path %><br>
-
-<%= link_to 'My Boards', boards_path %><br>
-
-<%= link_to 'Home', root_path %>
 

@@ -1,6 +1,8 @@
 class WelcomeController < ApplicationController
+	
   def index
-  	@pins = Pin.all
+  	@pins = Pin.where(public: true)
   	@boards = Board.all
   end
+
 end

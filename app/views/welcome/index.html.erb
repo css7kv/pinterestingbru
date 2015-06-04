@@ -4,17 +4,14 @@
 <% if @pins.empty? %>
 	<strong>Sorry: no pins have been posted yet!</strong><br>
 <% else %>
-		<% @pins.each do |pin| %>
+		<% @pins.public.each do |pin| %>
 			<strong><%= link_to pin.title, pin_path(pin) %></strong>
 			<p><%= pin.caption %></p>
 			<img src = "<%= pin.url %>" style="width:500px;height:500px;"><br>
+			<p><%= button_to 'Like', like_pin_path(pin), method: :post %></p>
 		<% end %>
 <% end %>
 
 
 
-<%= link_to 'Add a new pin', new_pin_path %><br>
-<%= link_to 'Create a board', new_board_path %><br>
-<%= link_to 'My Pins', pins_path %><br>
-<%= link_to 'My Boards', boards_path %>
 

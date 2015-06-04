@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 	resources :pins do
 		get 'addtoboard', on: :member
 		put 'boards/:id', to: 'pins#add2', as: 'add2'
+		member do
+	      post 'like'
+	    end
 	end
 
 
